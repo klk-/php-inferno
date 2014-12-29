@@ -7,33 +7,33 @@ class Limbo
 {	
 	public function the_truth_is_true()
 	{
-		assert_true(__); // make this true
+		assert_true(true); // make this true
 	}
 
 	public function dispatch_the_lies()
 	{
 		$the_sky_is_red = false;
-		assert_true($the_sky_is_red == __); // make this false
+		assert_true($the_sky_is_red == false); // make this false
 	}
 
 	public function find_what_is_true___()
 	{
 		$hells_circles = 9;
-		assert_true($hells_circles + 1 == __);
+		assert_true($hells_circles + 1 == 10);
 	}
 
 	public function __and_tell_it_on_the_mount()
 	{
 		$hells_circles = 9;
-		assert_that($hells_circles)->is_equal_to(__);
+		assert_that($hells_circles)->is_equal_to(9);
 	}
 	
 	public function though_you_may_find_truth_is_not_always_easy_to_find()
 	{
 		$virgil = "the poet";
-		assert_that($virgil == true)->is_equal_to(__);
-		assert_that($virgil === true)->is_equal_to(__);
-		assert_that($virgil)->is_identical_to(__);
+		assert_that($virgil == true)->is_equal_to(true);
+		assert_that($virgil === true)->is_equal_to(false);
+		assert_that($virgil)->is_identical_to("the poet");
 		
 		/*
 		* Virgil says: in the PHP inferno, we have a few assert methods we use
@@ -41,17 +41,20 @@ class Limbo
 		* strict-equal === operator and is_equal_to() corresponds to loose equal == operator. 
 		*/
 	}
-	
+
+    /*
 	public function tasks_are_actions_to_take()
 	{
 		// you can delete a task by adding // to the front or just deleting it
 		task('understand that tasks are actions you must take');
 	}
+    */
+
 
 	public function null_is_nothing()
 	{
 		$nothing = null;
-		assert_that($nothing == '')->is_equal_to(__);
+		assert_that($nothing == '')->is_equal_to(true);
 	}
 
 	/**
@@ -59,7 +62,7 @@ class Limbo
 	*/
 	public function sometimes_you_will_have_nothing_to_go_by()
 	{
-		assert_that($undeclared)->is_equal_to(__);
+		assert_that($undeclared)->is_equal_to(null);
 	}
 	
 	public function if_statements_let_you_check_for_things()
@@ -72,7 +75,7 @@ class Limbo
 		{
 			$value = 'more';
 		}
-		assert_that($value)->is_identical_to(__);
+		assert_that($value)->is_identical_to('less');
 	}
 	
 	/**
@@ -86,7 +89,16 @@ class Limbo
 	*/
 	private function get_apartment_prices($neighborhood_name, $bedrooms)
 	{
-		task('implement this method');
+        if( !(isset($neighborhood_name, $bedrooms) && is_string($neighborhood_name) && $bedrooms > 0) )
+            return null;
+
+		if($neighborhood_name == "The Mission") {
+            return 2000 * $bedrooms;
+        } else if($neighborhood_name == "Russian Hill") {
+            return 2500 + 1000 * max(($bedrooms - 1), 0);
+        } else {
+            return 1500 * $bedrooms;
+        }
 	}
 	
 	public function try_finding_an_apartment_in_the_mission_on_a_budget()

@@ -26,16 +26,12 @@ class ReverseArray implements ArrayAccess
 
 	public function offsetGet($offset)
 	{
-		// implement me!
-
-		throw new BadMethodCallException('implement this method');
+        return $this->internal_array[$this->start_index - $offset];
 	}
 
 	public function offsetSet($offset, $value)
 	{
-		// implement me!
-		
-		throw new BadMethodCallException('implement this method');
+        $this->internal_array[$this->start_index - $offset] = $value;
 	}
 
 	public function offsetUnset($offset)

@@ -197,20 +197,22 @@ class Dog implements Animal
 }
 
 // Uncomment me and see what happens
-
-// class Deer implements Animal
-// {
-// }
-
+// Causes fatal error because interface methods are not implemented
+/*
+class Deer implements Animal
+{
+}
+*/
 
 // Uncomment me and see what happens
-// class AnyNoise implements Animal
-// {
-// 	public function __call($name, $args)
-// 	{
-//
-// 	}
-// }
+// Causes fatal error because interface methods are not implemented
+ /*class AnyNoise implements Animal
+ {
+ 	public function __call($name, $args)
+ 	{
+
+ 	}
+ }*/
 
 abstract class Insect implements Animal
 {
@@ -282,7 +284,7 @@ abstract class Monster
 }
 
 // Uncomment and see what happens
-
+// Results in parse error (classes can only extend 1 class)
 // class InsectMonster extends Insect, Monster {}
 
 /**
@@ -327,13 +329,13 @@ class Entrepreneur
 	}
 }
 
-// class Entrepreneur
-// {
-// 	public function additional_method()
-// 	{
-// 		return "wello";
-// 	}
-// }
+//class Entrepreneur
+//{
+//public function additional_method()
+//{
+//    return "wello";
+//}
+//}
 
 class Plant
 {
