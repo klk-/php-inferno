@@ -419,6 +419,7 @@ class Greed
 	public function two_person_hierarchy_is_harder()
 	{
 		$hierarchy = SalesHierarchy::build('0{Ricky|Clueless}1{Shelley|Loser}');
+        print $hierarchy;
 		$hierarchy->assign_to_best_rep(new Lead('Rio Rancho', 10000));
 		$hierarchy->assign_to_best_rep(new Lead('Clear Meadows', 5000));
 
